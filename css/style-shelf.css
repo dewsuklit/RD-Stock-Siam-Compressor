@@ -1,0 +1,549 @@
+/*------------ Google font ------------*/
+@font-face {
+    font-family: 'concert';
+    src: url('../ConcertOne-Regular/ConcertOne-Regular.ttf')format('truetype');
+}
+
+/*------------ Global ------------*/
+* {
+    font-family: 'concert';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #6580ba;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+/*------------ Navigation ------------*/
+.icon svg{
+    width: 50px;
+    height: 30px;
+    margin-top: 14px;
+    fill: white;
+}
+.toggle svg{
+    width: 50px;
+    height: 45px;
+}
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue) ; /*var(--blue)*/
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 80px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: var(--blue);
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    font-size: 27px;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/*------------ Curve outside ------------*/
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/*------------ Main ------------*/
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+
+
+.user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*------------ Menu Box ------------*/
+.menuBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.menuBox .menu {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.menuName {
+    font-size: 30px;
+}
+
+.menuBox .menu .iconMenu {
+    font-size: 3.5rem;
+    color: var(--black2);
+}
+
+.menuBox .menu:hover {
+    background: var(--blue);
+}
+
+.menuBox .menu:hover .menuName,
+.menuBox .menu:hover .iconMenu {
+    color: var(--white);
+}
+
+/*------------ Part Details List ------------*/
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+
+    /*margin-top: 10px;*/
+}
+
+.details .recentPart {
+    position: relative;
+    display: block;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.details .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 80px;
+}
+
+
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.cardHeader .btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+    
+}
+.cardBottom .btn {
+    position: absolute;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 50%;
+    border: none;
+    bottom: -50px;
+    
+}
+
+
+
+
+.details #myTable,
+.details #myTable2{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td {
+    font-weight: 600;
+
+}
+
+.details .recentPart table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .recentPart table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details .recentPart table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentPart table tr td {
+    pad: 10px;
+
+}
+
+.details .recentPart table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentPart table tr td:nth-child(2) {
+    text-align: start;
+}
+
+.details .recentPart table tr td:nth-child(3) {
+    text-align: center;
+}
+
+
+
+
+
+.popupMenu .imgBox {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.popupMenu .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popupMenu table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.popupMenu table tr td {
+    padding: 12px 10px;
+}
+
+.popupMenu table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2rem;
+}
+
+.popupMenu table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
+    font-weight: 500;
+    line-height: 1.2rem;
+}
+
+.popupMenu table tr:hover td h4 span {
+    color: var(--black2);
+}
+
+.popupAddShelf{
+    width: 400px;
+    background: #ffffff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 1.08);
+}
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.popupAddShelf h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+    position: relative;
+}
+.popupAddShelf button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+input{
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1.2px  solid #c4cae0;
+    margin-top: 5px;
+}
+
+.myTagA{
+    position: absolute;
+    right: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+/* =============== Responsive design =============== */
+@media (max-width: 1310px) {
+    .menuName {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 991px) {
+    .navigation {
+        left: -300px;
+    }
+
+    .navigation.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 300px;
+    }
+
+    .menuBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: 1fr;
+    }
+
+    .recentPart {
+        overflow-x: auto;
+    }
+}
+@media (max-width: 689px) {
+    .details table{
+        font-size: 10px;
+    }
+}
+@media (max-width: 519px) {
+    .details table{
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .menuBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+
+    .user {
+        min-width: 40px;
+    }
+
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle {
+        z-index: 10001;
+    }
+
+    .main.active .toggle {
+        color: #fff;
+        position: fixed;
+        left: initial;
+    }
+
+}
