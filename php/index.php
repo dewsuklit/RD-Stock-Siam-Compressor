@@ -1,20 +1,20 @@
 <?php 
 
-    session_start();
+    // session_start();
     
-    if ($_SESSION['id'] == ""){
-        header("location: login.php");
-    }else{
-        require_once('config.php');
-        $query = "SELECT * FROM tbl_report_details ORDER BY id DESC";
+    // if ($_SESSION['id'] == ""){
+    //     header("location: login.php");
+    // }else{
+    //     require_once('config.php');
+    //     $query = "SELECT * FROM tbl_report_details ORDER BY id DESC";
 
-        $result = mysqli_query($con, $query);
+    //     $result = mysqli_query($con, $query);
 
 
        
-        $query2 = "UPDATE tbl_report_details
-        SET num_days_stock = DATEDIFF(CURDATE(), date_in)";
-        $result2 = mysqli_query($con, $query2);
+    //     $query2 = "UPDATE tbl_report_details
+    //     SET num_days_stock = DATEDIFF(CURDATE(), date_in)";
+    //     $result2 = mysqli_query($con, $query2);
         
 ?>
 
