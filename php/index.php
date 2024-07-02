@@ -194,10 +194,10 @@
                     
                     <?php
                         
-                        while($row = mysqli_fetch_assoc($result)){
+                        // while($row = mysqli_fetch_assoc($result)){
                     ?>
                         
-                        <td><?php echo $row['id']; ?></td>
+                        <!-- <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['date_in']; ?></td>
                         <td><?php echo $row['num_days_stock']." d."; ?></td>
                         <td><?php echo $row['subshelf_name']; ?></td>
@@ -205,13 +205,13 @@
                         <td><?php echo $row['product_name']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
                         <td><?php echo $row['user_id_in']; ?></td>
-                        <td><?php echo $row['balance']; ?></td>
+                        <td><?php echo $row['balance']; ?></td> -->
 
                     </tr>
                     <?php
-                        }
+                        // }
                     ?>
-                </tbody>
+                </tbody> 
             </table>
            
             <div id="searchresult"></div>
